@@ -57,5 +57,5 @@ set(LIBRGA_INCLUDES ${RGA_PATH}/include PARENT_SCOPE)
 install(PROGRAMS ${RGA_PATH}/${CMAKE_SYSTEM_NAME}/${TARGET_LIB_ARCH}/librga.so DESTINATION lib)
 
 # 添加编译器参数
-set(CMAKE_C_COMPILER "/home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc")
-set(CMAKE_CXX_COMPILER "/home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-g++")
+set(CMAKE_C_COMPILER "${CMAKE_CURRENT_SOURCE_DIR}/../../sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc")
+set(CMAKE_CXX_COMPILER "${CMAKE_CURRENT_SOURCE_DIR}/../../sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-g++")

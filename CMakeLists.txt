@@ -86,11 +86,14 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/model/bus.jpg DESTINATION model)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/model/coco_80_labels_list.txt DESTINATION model)
 install(FILES ${RKNN_FILES} DESTINATION model)
 
-# 设置编译器目录
-set(CMAKE_C_COMPILER "/home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc")
-set(CMAKE_CXX_COMPILER "/home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-g++")
-
+# opencvlib
 # set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include/opencv-mobile/lib/cmake/opencv4")
 # find_package(OpenCV REQUIRED)
 # target_link_libraries(opencv-mobile-test ${OpenCV_LIBS})
 # include_directories(${OpenCV_INCLUDE_DIRS})
+
+# 设置编译器目录
+set(CMAKE_C_COMPILER "${CMAKE_CURRENT_SOURCE_DIR}/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc")
+set(CMAKE_CXX_COMPILER "${CMAKE_CURRENT_SOURCE_DIR}/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-g++")
+
+

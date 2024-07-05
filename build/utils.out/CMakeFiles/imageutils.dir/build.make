@@ -73,15 +73,15 @@ utils.out/CMakeFiles/imageutils.dir/image_utils.c.o: utils.out/CMakeFiles/imageu
 utils.out/CMakeFiles/imageutils.dir/image_utils.c.o: ../include/utils/image_utils.c
 utils.out/CMakeFiles/imageutils.dir/image_utils.c.o: utils.out/CMakeFiles/imageutils.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/berry/luckprj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object utils.out/CMakeFiles/imageutils.dir/image_utils.c.o"
-	cd /home/berry/luckprj/build/utils.out && /home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT utils.out/CMakeFiles/imageutils.dir/image_utils.c.o -MF CMakeFiles/imageutils.dir/image_utils.c.o.d -o CMakeFiles/imageutils.dir/image_utils.c.o -c /home/berry/luckprj/include/utils/image_utils.c
+	cd /home/berry/luckprj/build/utils.out && /home/berry/luckprj/include/utils/../../sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT utils.out/CMakeFiles/imageutils.dir/image_utils.c.o -MF CMakeFiles/imageutils.dir/image_utils.c.o.d -o CMakeFiles/imageutils.dir/image_utils.c.o -c /home/berry/luckprj/include/utils/image_utils.c
 
 utils.out/CMakeFiles/imageutils.dir/image_utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imageutils.dir/image_utils.c.i"
-	cd /home/berry/luckprj/build/utils.out && /home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/berry/luckprj/include/utils/image_utils.c > CMakeFiles/imageutils.dir/image_utils.c.i
+	cd /home/berry/luckprj/build/utils.out && /home/berry/luckprj/include/utils/../../sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/berry/luckprj/include/utils/image_utils.c > CMakeFiles/imageutils.dir/image_utils.c.i
 
 utils.out/CMakeFiles/imageutils.dir/image_utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imageutils.dir/image_utils.c.s"
-	cd /home/berry/luckprj/build/utils.out && /home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/berry/luckprj/include/utils/image_utils.c -o CMakeFiles/imageutils.dir/image_utils.c.s
+	cd /home/berry/luckprj/build/utils.out && /home/berry/luckprj/include/utils/../../sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/berry/luckprj/include/utils/image_utils.c -o CMakeFiles/imageutils.dir/image_utils.c.s
 
 # Object files for target imageutils
 imageutils_OBJECTS = \
