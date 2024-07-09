@@ -1,5 +1,5 @@
-#ifndef _RKNN_YOLOV8_DEMO_POSTPROCESS_H_
-#define _RKNN_YOLOV8_DEMO_POSTPROCESS_H_
+#ifndef _RKNN_YOLOV5_DEMO_POSTPROCESS_H_
+#define _RKNN_YOLOV5_DEMO_POSTPROCESS_H_
 
 #include <stdint.h>
 #include <vector>
@@ -12,6 +12,7 @@
 #define OBJ_CLASS_NUM 80
 #define NMS_THRESH 0.45
 #define BOX_THRESH 0.25
+#define PROP_BOX_SIZE (5 + OBJ_CLASS_NUM)
 
 // class rknn_app_context_t;
 
@@ -33,4 +34,4 @@ char *coco_cls_to_name(int cls_id);
 int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter_box, float conf_threshold, float nms_threshold, object_detect_result_list *od_results);
 
 void deinitPostProcess();
-#endif //_RKNN_YOLOV8_DEMO_POSTPROCESS_H_
+#endif //_RKNN_YOLOV5_DEMO_POSTPROCESS_H_

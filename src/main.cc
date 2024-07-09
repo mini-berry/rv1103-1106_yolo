@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "yolov8.h"
+#include "yolov5.h"
 #include "image_utils.h"
 #include "file_utils.h"
 #include "image_drawing.h"
@@ -49,10 +49,10 @@ int main(int argc, char **argv)
 
     init_post_process();
 
-    ret = init_yolov8_model(model_path, &rknn_app_ctx);
+    ret = init_yolov5_model(model_path, &rknn_app_ctx);
     if (ret != 0)
     {
-        printf("init_yolov8_model fail! ret=%d model_path=%s\n", ret, model_path);
+        printf("init_yolov5_model fail! ret=%d model_path=%s\n", ret, model_path);
         goto out;
     }
 
@@ -71,7 +71,7 @@ int main(int argc, char **argv)
     src_image.fd = rknn_app_ctx.img_dma_buf.dma_buf_fd;
     rknn_app_ctx.img_dma_buf.size = src_image.size;
 #endif
-    
+
     if (ret != 0)
     {
         printf("read image fail! ret=%d image_path=%s\n", ret, image_path);
@@ -80,10 +80,10 @@ int main(int argc, char **argv)
 
     object_detect_result_list od_results;
 
-    ret = inference_yolov8_model(&rknn_app_ctx, &src_image, &od_results);
+    ret = inference_yolov5_model(&rknn_app_ctx, &src_image, &od_results);
     if (ret != 0)
     {
-        printf("init_yolov8_model fail! ret=%d\n", ret);
+        printf("init_yolov5_model fail! ret=%d\n", ret);
         goto out;
     }
 
@@ -112,10 +112,10 @@ int main(int argc, char **argv)
 out:
     deinit_post_process();
 
-    ret = release_yolov8_model(&rknn_app_ctx);
+    ret = release_yolov5_model(&rknn_app_ctx);
     if (ret != 0)
     {
-        printf("release_yolov8_model fail! ret=%d\n", ret);
+        printf("release_yolov5_model fail! ret=%d\n", ret);
     }
 
     if (src_image.virt_addr != NULL)

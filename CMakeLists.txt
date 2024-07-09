@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
-project(yolo-test)
+project(yolo_test)
+# export GCC_COMPILER=/home/berry/luckprj/sdk/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf
+# export CC=${GCC_COMPILER}-gcc
+# export CXX=${GCC_COMPILER}-g++
+
 # set(CMAKE_CXX_STANDARD 11)
 # 关闭检测器
 set(ENABLE_ASAN FALSE)
@@ -14,7 +18,7 @@ set(CMAKE_SYSTEM_NAME Linux)
 # 设置编译器目录
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/install")
 # 设置exe文件的lib库目录
-set(CMAKE_INSTALL_RPATH "lib")
+set(CMAKE_INSTALL_RPATH "$ORIGIN/lib")
 
 # 检测器配置
 if (ENABLE_ASAN)
@@ -25,29 +29,29 @@ if (ENABLE_ASAN)
 endif ()
 
 # 根据平台选择npu1\npu2
-set(rknpu_yolov8_file src/rknpu2/yolov8.cc)
+set(rknpu_yolov5_file src/rknpu2/yolov5.cc)
 
 if (TARGET_SOC STREQUAL "rv1106" OR TARGET_SOC STREQUAL "rv1103")
     add_definitions(-DRV1106_1103)
-    set(rknpu_yolov8_file src/rknpu2/yolov8_rv1106_1103.cc)
+    set(rknpu_yolov5_file src/rknpu2/yolov5_rv1106_1103.cc)
     #dma
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/3rdparty/allocator/dma)
 endif()
 
 if(TARGET_SOC STREQUAL "rk1808" OR TARGET_SOC STREQUAL "rv1109" OR TARGET_SOC STREQUAL "rv1126")
     add_definitions(-DRKNPU1)
-    set(rknpu_yolov8_file src/rknpu1/yolov8.cc)
+    set(rknpu_yolov5_file src/rknpu1/yolov5.cc)
 endif()
-
-file(GLOB SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/include/3rdparty 3rdparty.out)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/include/utils utils.out)
 
+file(GLOB SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc)
+
 add_executable(${PROJECT_NAME}
     src/main.cc
     src/postprocess.cc
-    ${rknpu_yolov8_file}
+    ${rknpu_yolov5_file}
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -64,7 +68,6 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Android")
 )
 endif()
 
-message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
@@ -76,11 +79,10 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${LIBRKNNRT_INCLUDES}
 )
 
-file(GLOB RKNN_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.rknn")
-
 install(TARGETS ${PROJECT_NAME} DESTINATION .)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/model/bus.jpg DESTINATION model)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/model/coco_80_labels_list.txt DESTINATION model)
+file(GLOB RKNN_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.rknn")
 install(FILES ${RKNN_FILES} DESTINATION model)
 
 # opencvlib
