@@ -39,9 +39,6 @@ if(TARGET_SOC STREQUAL "rk1808" OR TARGET_SOC STREQUAL "rv1109" OR TARGET_SOC ST
     set(rknpu_yolov8_file src/rknpu1/yolov8.cc)
 endif()
 
-# 设置链接库目录，不设置找不到动态库
-set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
-
 file(GLOB SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/include/3rdparty 3rdparty.out)
