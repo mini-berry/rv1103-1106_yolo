@@ -12,6 +12,13 @@ make install
 ## 主要修改
 CMakeLists指定了编译器路径
 设置了3rdparty和main的编译参数
-## 还存在的问题
-把install拷贝到/oem目录，找不到lib
-把install/*拷贝到/oem目录，正常执行
+## 特别说明
+所有的yolo demo都可使用一样的程序
+只需要修改模型
+对于rv1103\rv1106由于内存不足，最好使用yolov5
+提供了yolov8供测试
+```sh
+./yolo_test model/yolov5.rknn model/bus.jpg
+```
+# 模型导出
+yolo export format=onnx opset=19 model=yolov5n.pt
