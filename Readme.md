@@ -1,6 +1,7 @@
 # 基于rv1103/1106的yolov8
 ## 使用方法
 编译不再需要执行build-linux.sh
+
 执行以下代码
 ```sh
 mkdir build
