@@ -1,4 +1,5 @@
 # 基于rv1103/1106的yolov8
+理论适用其他平台，请自行配置CMakeLists.txt
 ## 使用方法
 编译不再需要执行build-linux.sh
 
