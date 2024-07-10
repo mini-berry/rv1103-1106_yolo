@@ -9,6 +9,11 @@ cmake ..
 make -j4
 make install
 ```
+## 运行
+```sh
+adb push a /oem
+./yolo_test model/yolov5.rknn model/bus.jpg
+```
 ## 主要修改
 CMakeLists指定了编译器路径
 设置了3rdparty和main的编译参数
@@ -20,9 +25,15 @@ CMakeLists指定了编译器路径
 ```sh
 ./yolo_test model/yolov5nu.rknn model/bus.jpg
 ```
-# 模型导出
+# 模型相关
+## 模型导出
 yolo export format=onnx opset=12 model=yolov5nu.pt
 opset=12是必选的,否则内存不足
-使用yolov5nu.pt导出后仍然报错
+使用yolov5nu.pt导出后仍然报错,解决不了
 E RKNN: rknn_pack error, Unsupported input type 0 pack to output type 2!
-解决不了
+使用官方模型能跑通
+## 模型转换
+examples/yolov5/python内
+```sh
+python convert ../model/yolov5nu.onnx rv1106
+```
